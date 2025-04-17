@@ -118,6 +118,10 @@
       filter: drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 20px #ff0000);
     }
 
+    .socials a.locket:hover img {
+      filter: drop-shadow(0 0 10px #ffcc00) drop-shadow(0 0 20px #ffcc00);
+    }
+
     .tabs {
       display: flex;
       justify-content: center;
@@ -302,7 +306,11 @@
       <a href="https://youtube.com/@Sayu2313" target="_blank" class="youtube">
         <img class="social-icon" src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
       </a>
+      <a href="https://locket.app/seiiiu" target="_blank" class="locket">
+        <img class="social-icon" src="locket_app_icon-1024x1024.png" alt="Locket" />
+      </a>
     </div>
+
 
     <div class="tabs">
       <button class="tab-button active" onclick="showTab('personal')">Thông tin cá nhân</button>
@@ -317,9 +325,7 @@
         <p><strong>Sinh nhật:</strong> 15/07/2006</p>
         <p><strong>Sở thích:</strong> Chơi game, ngủ</p>
         <p><strong>Quê quán:</strong> Hà Nam, Việt Nam</p>
-        <p><strong>Đang hẹn hò:</strong> Trần Mỹ Huyền 🥰</p>
-        <p><strong>Gmail:</strong> dyann.seina@gmail.com</p>
-        <p><strong>Sđt:</strong> 0355445859</p>
+        <p><strong>Tình trạng:</strong> Đang hẹn hò với Trần Mỹ Huyền 💖</p>
       </div>
     </div>
 
@@ -348,9 +354,9 @@
           <div class="bank">
             <img class="bank-logo" src="logo-vietcombank-vector-11.png" alt="Vietcombank" />
             <div class="bank-name">Vietcombank</div>
-            <div class="bank-info">Chủ TK: Hoàng Kim Duy An</div>
-            <div class="bank-info">Số tài khoản: 1036446932</div>
-            <button onclick="showQR('vcb-qr')" class="qr-button">QR</button>
+            <div class="bank-info">Name: Hoàng Kim Duy An</div>
+            <div class="bank-info">STK: 1036446932</div>
+            <button onclick="showQR('vcb-qr')" class="qr-button">Mã QR</button>
             <div class="qr-code" id="vcb-qr">
               <img src="Viet.jpg" alt="QR Vietcombank" />
             </div>
@@ -358,9 +364,9 @@
           <div class="bank">
             <img class="bank-logo" src="Bieu-Tuong-Logo-Ngan-Hang-Techcombank.png" alt="Techcombank" />
             <div class="bank-name">Techcombank</div>
-            <div class="bank-info">Chủ TK: Hoàng Kim Duy An</div>
-            <div class="bank-info">Số tài khoản: 1507200631</div>
-            <button onclick="showQR('tcb-qr')" class="qr-button">QR</button>
+            <div class="bank-info">Name: Hoàng Kim Duy An</div>
+            <div class="bank-info">STK: 1507200631</div>
+            <button onclick="showQR('tcb-qr')" class="qr-button">Mã QR</button>
             <div class="qr-code" id="tcb-qr">
               <img src="Tech.jpg" alt="QR Techcombank" />
             </div>
@@ -372,13 +378,15 @@
 
   <script>
     function showTab(tabName) {
-      const tabs = document.querySelectorAll('.tab-content');
-      tabs.forEach(tab => tab.classList.remove('active-tab'));
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active-tab');
+      });
 
       document.getElementById(tabName).classList.add('active-tab');
 
-      const buttons = document.querySelectorAll('.tab-button');
-      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
 
       const activeBtn = document.querySelector(`.tab-button[onclick="showTab('${tabName}')"]`);
       activeBtn.classList.add('active');
@@ -388,10 +396,10 @@
       const qr = document.getElementById(id);
       const isVisible = qr.style.display === 'block';
 
-      // Ẩn tất cả QR trước
-      document.querySelectorAll('.qr-code').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.qr-code').forEach(el => {
+        el.style.display = 'none';
+      });
 
-      // Nếu chưa hiển thị thì mới hiện lên
       if (!isVisible) {
         qr.style.display = 'block';
       }
