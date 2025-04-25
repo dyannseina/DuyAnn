@@ -424,16 +424,11 @@
     }
   </script>
 <body>
-  <!-- Nhạc tự phát -->
-  <audio autoplay loop>
-    <source src="m-taku---whale-voice-version-douyin.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+<button onclick="document.getElementById('audio').play()">Phát âm thanh</button>
+<audio id="audio" loop>
+  <source src="m-taku---whale-voice-version-douyin.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
 
-  <!-- Nội dung trang web -->
-  <div class="background" id="bg"></div>
-  <div class="container">
-    <!-- Các phần khác của trang web -->
-  </div>
 </body>
 </html>
