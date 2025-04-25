@@ -432,25 +432,65 @@
   <title>Seina</title>
 </head>
 <body>
-  <!-- Nút Play -->
-  <button onclick="playAudio()">Play</button>
+  <!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seina</title>
+  <style>
+    /* Các style khác của bạn */
+  </style>
+</head>
+<body>
+  <div class="background" id="bg"></div>
+  <div class="container">
+    <!-- Nội dung của bạn -->
+  </div>
 
-  <!-- Phần âm thanh -->
+  <!-- Âm thanh -->
   <audio id="audio" loop>
     <source src="m-taku---whale-voice-version-douyin.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
   <script>
-    // Hàm playAudio để phát âm thanh khi người dùng nhấn nút
-    function playAudio() {
+    // Hàm tự động phát âm thanh khi trang được tải
+    window.onload = function() {
       const audio = document.getElementById('audio');
-      audio.play();  // Phát âm thanh khi người dùng nhấn vào nút
+      audio.play();  // Phát âm thanh khi trang tải
+    };
+
+    function showTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active-tab');
+      });
+
+      document.getElementById(tabName).classList.add('active-tab');
+
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      const activeBtn = document.querySelector(`.tab-button[onclick="showTab('${tabName}')"]`);
+      activeBtn.classList.add('active');
+    }
+
+    function showQR(id) {
+      const qr = document.getElementById(id);
+      const isVisible = qr.style.display === 'block';
+
+      document.querySelectorAll('.qr-code').forEach(el => {
+        el.style.display = 'none';
+      });
+
+      if (!isVisible) {
+        qr.style.display = 'block';
+      }
     }
   </script>
 </body>
 </html>
-
 
 </body>
 </html>
