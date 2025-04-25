@@ -424,11 +424,33 @@
     }
   </script>
 <body>
-<button onclick="document.getElementById('audio').play()">Phát âm thanh</button>
-<audio id="audio" loop>
-  <source src="m-taku---whale-voice-version-douyin.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seina</title>
+</head>
+<body>
+  <!-- Nút Play -->
+  <button onclick="playAudio()">Play</button>
+
+  <!-- Phần âm thanh -->
+  <audio id="audio" loop>
+    <source src="m-taku---whale-voice-version-douyin.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Hàm playAudio để phát âm thanh khi người dùng nhấn nút
+    function playAudio() {
+      const audio = document.getElementById('audio');
+      audio.play();  // Phát âm thanh khi người dùng nhấn vào nút
+    }
+  </script>
+</body>
+</html>
+
 
 </body>
 </html>
