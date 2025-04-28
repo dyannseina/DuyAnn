@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Seina</title>
   <style>
-     * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -51,15 +51,9 @@
     }
 
     @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 10px #00f0ff, 0 0 20px #ff00ff;
-      }
-      50% {
-        box-shadow: 0 0 25px #ff00ff, 0 0 35px #00f0ff;
-      }
-      100% {
-        box-shadow: 0 0 10px #00f0ff, 0 0 20px #ff00ff;
-      }
+      0% { box-shadow: 0 0 10px #00f0ff, 0 0 20px #ff00ff; }
+      50% { box-shadow: 0 0 25px #ff00ff, 0 0 35px #00f0ff; }
+      100% { box-shadow: 0 0 10px #00f0ff, 0 0 20px #ff00ff; }
     }
 
     h1 {
@@ -98,34 +92,18 @@
       transform: scale(1.1);
     }
 
-    .socials a.facebook:hover img {
-      filter: drop-shadow(0 0 10px #1877f2) drop-shadow(0 0 20px #1877f2);
-    }
-
-    .socials a.instagram:hover img {
-      filter: drop-shadow(0 0 10px #e1306c) drop-shadow(0 0 20px #e1306c);
-    }
-
-    .socials a.tiktok:hover img {
-      filter: drop-shadow(0 0 10px #69c9d0) drop-shadow(0 0 20px #ee1d52);
-    }
-
-    .socials a.github:hover img {
-      filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #999999);
-    }
-
-    .socials a.youtube:hover img {
-      filter: drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 20px #ff0000);
-    }
-
-    .socials a.locket:hover img {
-      filter: drop-shadow(0 0 10px #ffcc00) drop-shadow(0 0 20px #ffcc00);
-    }
+    .socials a.facebook:hover img { filter: drop-shadow(0 0 10px #1877f2) drop-shadow(0 0 20px #1877f2); }
+    .socials a.instagram:hover img { filter: drop-shadow(0 0 10px #e1306c) drop-shadow(0 0 20px #e1306c); }
+    .socials a.tiktok:hover img { filter: drop-shadow(0 0 10px #69c9d0) drop-shadow(0 0 20px #ee1d52); }
+    .socials a.github:hover img { filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #999999); }
+    .socials a.youtube:hover img { filter: drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 20px #ff0000); }
+    .socials a.locket:hover img { filter: drop-shadow(0 0 10px #ffcc00) drop-shadow(0 0 20px #ffcc00); }
 
     .tabs {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
+      flex-wrap: wrap;
       margin-bottom: 30px;
     }
 
@@ -217,13 +195,13 @@
       flex-wrap: wrap;
     }
 
-    .personal h2 {
+    .personal h2, .messages h2 {
       font-size: 2rem;
       text-shadow: 0 0 10px #ff70c9, 0 0 20px #ff70c9, 0 0 30px #ff70c9;
       margin-bottom: 20px;
     }
 
-    .personal {
+    .personal, .messages {
       background: rgba(255, 255, 255, 0.08);
       padding: 30px;
       border-radius: 15px;
@@ -301,6 +279,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="background" id="bg"></div>
   <div class="container">
@@ -334,6 +313,7 @@
       <button class="tab-button active" onclick="showTab('personal')">Thông tin cá nhân</button>
       <button class="tab-button" onclick="showTab('games')">Game</button>
       <button class="tab-button" onclick="showTab('banks')">Ngân Hàng</button>
+      <button class="tab-button" onclick="showTab('messages')">Vài lời muốn nói</button>
     </div>
 
     <div id="personal" class="tab-content active-tab">
@@ -392,16 +372,23 @@
         </div>
       </div>
     </div>
+
+    <div id="messages" class="tab-content">
+      <div class="messages">
+        <h2>Đôi lời muốn nói</h2>
+        <p>Cảm ơn bạn đã ghé thăm trang cá nhân của mình. Hi vọng bạn có một ngày vui vẻ! 🌸</p>
+        <p>Mọi liên hệ hay kết bạn cứ mạnh dạn nhắn mình nhé! 💬</p>
+      </div>
+    </div>
+
   </div>
 
-  <!-- Nhạc nền -->
   <audio id="audio" loop autoplay>
     <source src="m-taku---whale-voice-version-douyin.mp3" type="audio/mp3">
     Trình duyệt của bạn không hỗ trợ audio.
   </audio>
 
   <script>
-    // Chuyển tab
     function showTab(tabName) {
       document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active-tab');
@@ -418,7 +405,6 @@
       }
     }
 
-    // Hiện QR ngân hàng
     function showQR(id) {
       const qr = document.getElementById(id);
       const isVisible = qr.style.display === 'block';
@@ -432,7 +418,6 @@
       }
     }
 
-    // Tự động play nhạc khi load trang
     window.onload = function() {
       const audio = document.getElementById('audio');
       audio.play().catch(error => {
