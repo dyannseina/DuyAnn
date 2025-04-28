@@ -389,6 +389,7 @@
   </audio>
 
   <script>
+    // Chuyển tab
     function showTab(tabName) {
       document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active-tab');
@@ -405,6 +406,7 @@
       }
     }
 
+    // Hiện QR ngân hàng
     function showQR(id) {
       const qr = document.getElementById(id);
       const isVisible = qr.style.display === 'block';
@@ -418,6 +420,7 @@
       }
     }
 
+    // Tự động play nhạc khi load trang
     window.onload = function() {
       const audio = document.getElementById('audio');
       audio.play().catch(error => {
